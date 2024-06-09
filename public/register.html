@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #F3CEFF, #D0D2FB);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .register-container .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .register-container .input-group input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding and border are included in the width */
+
+        }
+
+        .register-container .input-group .input-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #F3CEFF;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .register-container button:hover {
+            background-color: #e8b3d8;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="register-form" method="POST" action="/register">
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Name">
+                <i class="fas fa-user input-icon"></i>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email">
+                <i class="fas fa-envelope input-icon"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password">
+                <i class="fas fa-lock input-icon"></i>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <p class="register-link">Already have an account? <a href="/login">Log in here</a></p>
+    </div>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Simulate a redirect to index.html after a short delay (for demonstration)
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 1000); // Redirect after 1 second (1000 milliseconds)
+        });
+    </script>
+</body>
+
+</html>

@@ -16,7 +16,7 @@ class NewsService
     public function __construct(LoggerInterface $logger)
     {
         $this->client = new Client();
-        $this->apiKey = ; //PLEASE CHANGE
+        $this->apiKey = ; 'your API key'//PLEASE CHANGE
         $this->apiHost = 'news-api14.p.rapidapi.com';
         $this->logger = $logger;
     }

@@ -15,10 +15,10 @@
     <div class="wrapper">
         <div class="sidebar">
             <div class="user-profile">
-                <img src="../public/Images/Ellipse.png" alt="User Profile Picture" class="profile-pic">
+                <img src="Images/Ellipse.png" alt="User Profile Picture" class="profile-pic">
                 <div class="user-info">
                     <h3 id="username">UserName!</h3>
-                    <img src="../public/Images/shape.png" alt="Logout Icon" class="logout-icon" id="logout-icon">
+                    <img src="Images/shape.png" alt="Logout Icon" class="logout-icon" id="logout-icon">
                 </div>
             </div>
         </div>
@@ -39,18 +39,16 @@
                     </div>
                     <div id="weather-data">
                         <div class="main-data">
-                            <p>City: <span id="city"></span></p>
-                            <p>Country: <span id="country"></span></p>
-                            <p>Temperature: <span id="temperature"></span>°F</p>
+                            <p><i class="fas fa-city"></i> City: <span id="city"></span></p>
+                            <p><i class="fas fa-flag"></i> Country: <span id="country"></span></p>
+                            <p><i class="fas fa-thermometer-half"></i> Temperature: <span id="temperature"></span>°C</p>
                         </div>
                         <div class="extra-data">
                             <div class="humidity">
-                                <i class="fa-solid fa-water"></i>
-                                <p>Humidity: <span id="humidity"></span>%</p>
+                                <p><i class="fa-solid fa-water"></i> Humidity: <span id="humidity"></span>%</p>
                             </div>
                             <div class="wind-speed">
-                                <i class="fa-solid fa-wind"></i>
-                                <p>Wind Speed: <span id="windSpeed"></span> m/s</p>
+                                <p><i class="fa-solid fa-wind"></i> Wind Speed: <span id="windSpeed"></span> m/s</p>
                             </div>
                         </div>
                     </div>
@@ -77,17 +75,12 @@
                     </div>
                     <button id="fetch-quote-button">Enter</button>
                 </div>
-                <div id="quote-data">Loading quote...</div>
+                <div id="quote-data"></div>
             </div>
         </div>
     </div>
     <script src="scripts.js"></script>
     <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
-    <script>
-        document.getElementById('logout-icon').addEventListener('click', () => {
-            window.location.href = 'login.html';
-        });
-    </script>
 </body>
 
 </html>

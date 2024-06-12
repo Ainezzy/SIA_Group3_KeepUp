@@ -16,14 +16,18 @@ class NewsService
     public function __construct(LoggerInterface $logger)
     {
         $this->client = new Client();
-        $this->apiKey = ; 'your API key'//PLEASE CHANGE
+        $this->apiKey = '5164abd0bbmshc95f63dc5d1553fp12000cjsne250ceceb573';
         $this->apiHost = 'news-api14.p.rapidapi.com';
         $this->logger = $logger;
     }
 
-    public function getNews($category = 'sports')
+    public function getNews($category)
     {
-        if (env('USE_MOCK_DATA', false)) {
+        $useMockData = env('USE_MOCK_DATA', false);
+        $this->logger->info('USE_MOCK_DATA value:', ['value' => $useMockData]);
+
+        if ($useMockData) {
+            $this->logger->info('Using mock data for news');
             return $this->getMockNews($category);
         }
 
@@ -34,7 +38,7 @@ class NewsService
                     'x-rapidapi-key' => $this->apiKey,
                 ],
                 'query' => [
-                    'country' => 'us',
+                    'country' => 'ph',
                     'language' => 'en',
                     'pageSize' => 10,
                     'category' => $category,
@@ -62,9 +66,11 @@ class NewsService
 
     private function getMockNews($category)
     {
+        $this->logger->info('Returning mock news data', ['category' => $category]);
+
         return [
             'status' => 'ok',
-            'totalResults' => 1,
+            'totalResults' => 5,
             'articles' => [
                 [
                     'source' => [

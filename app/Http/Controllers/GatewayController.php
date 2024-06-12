@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Services\NewsService;
 use App\Services\WeatherService;
 use App\Services\QuoteService;
-use App\Services\SearchService;
 use Illuminate\Http\Request;
 
 class GatewayController extends Controller
@@ -25,9 +24,9 @@ class GatewayController extends Controller
 
     public function getAllData(Request $request)
     {
-        $city = $request->input('city', 'new york');
-        $newsCategory = $request->input('news_category', 'general');
-        $quoteTopic = $request->input('quote_topic', 'inspiration');
+        $city = $request->input('city');
+        $newsCategory = $request->input('news_category');
+        $quoteTopic = $request->input('quote_topic');
 
         $news = $this->newsService->getNews($newsCategory);
         $weather = $this->weatherService->getWeather($city);

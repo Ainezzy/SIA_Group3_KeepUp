@@ -6,10 +6,9 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-
 use GuzzleHttp\Exception\ClientException;
-
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException; 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
@@ -19,6 +18,7 @@ use Throwable;
 class Handler extends ExceptionHandler
 {
     use ApiResponser;
+
     /**
      * A list of the exception types that should not be reported.
      *
@@ -80,17 +80,17 @@ class Handler extends ExceptionHandler
         if ($exception instanceof AuthorizationException) {
             return $this->errorResponse($exception->getMessage(), Response::HTTP_FORBIDDEN);
         }
+
         // unauthorized access
         if ($exception instanceof AuthenticationException) {
             return $this->errorResponse($exception->getMessage(), Response::HTTP_UNAUTHORIZED);
         }
 
-        // TO BE ABLE TO RUN THE ERROR HANDLING IN GATEWAY
-
+        // handling client exceptions
         if ($exception instanceof ClientException) {
             $message = $exception->getResponse()->getBody();
             $code = $exception->getCode();
-            return $this->errorMessage($message,200);
+            return $this->errorMessage($message, 200);
         }
     
         // if your are running in development environment

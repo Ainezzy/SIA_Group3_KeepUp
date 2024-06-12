@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\QuoteService;
+use Illuminate\Support\Facades\Log;
 
 class QuoteController extends Controller
 {
@@ -14,25 +15,25 @@ class QuoteController extends Controller
         $this->quoteService = $quoteService;
     }
 
-    public function getRandomQuote(Request $request)
+    public function getRandomQuote()
     {
-        $topic = $request->input('topic', 'life');
-
         try {
-            $quote = $this->quoteService->getRandomQuote($topic);
+            $quote = $this->quoteService->getRandomQuote();
             return response()->json($quote);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Error fetching quote: ' . $e->getMessage()], 500);
+            Log::error('Error fetching random quote: ' . $e->getMessage());
+            return response()->json(['error' => 'Error fetching random quote: ' . $e->getMessage()], 500);
         }
     }
 
-    public function getQuotesByCategory(Request $request, $categoryName)
+    public function getRandomQuoteByWord($word)
     {
         try {
-            $quotes = $this->quoteService->getQuotesByCategory($categoryName);
-            return response()->json($quotes);
+            $quote = $this->quoteService->getRandomQuote($word);
+            return response()->json($quote);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Error fetching quotes: ' . $e->getMessage()], 500);
+            Log::error('Error fetching quote for word: ' . $e->getMessage());
+            return response()->json(['error' => 'Error fetching quote for word: ' . $e->getMessage()], 500);
         }
     }
 }

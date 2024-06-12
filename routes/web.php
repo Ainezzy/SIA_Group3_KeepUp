@@ -37,8 +37,13 @@ $router->group(['middleware'=>'client.credentials'], function() use ($router){
     $router->post('/register', 'AuthController@register');
 
     $router->get('/news', 'NewsController@getNews');
+    $router->get('/news/{category}', 'NewsController@getNewsByCategory');
+
     $router->get('/quote', 'QuoteController@getRandomQuote');
+    $router->get('/quote/{word}', 'QuoteController@getRandomQuoteByWord');
+
     $router->get('/weather', 'WeatherController@getWeather');
+    $router->get('/weather/{city}', 'WeatherController@getWeatherByCity');
 
     // Updated route for getting all data with query parameters
     $router->get('/all-data', 'GatewayController@getAllData');

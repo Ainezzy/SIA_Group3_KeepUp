@@ -73,6 +73,7 @@ async function fetchNews(category) {
 //     }
 // }
 
+
 async function fetchQuoteByWord(topic) {
     try {
         const response = await fetch(`/quote/${topic}`, {

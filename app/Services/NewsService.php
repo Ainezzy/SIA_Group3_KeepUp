@@ -66,8 +66,7 @@ class NewsService
             // Gets the error message from the response or sets a default message
             $message = isset($responseBody['message']) ? $responseBody['message'] : 'An error occurred'; 
 
-            // Throws a new exception with the error message and status code
-            throw new \Exception("Error fetching news data: $message", $statusCode); 
+            throw new \Exception("Error fetching news data: $message", $statusCode); // Throws a new exception with the error message and status code
         } catch (\Exception $e) { // Catches any other exceptions
             throw new \Exception('Error fetching news data: ' . $e->getMessage(), 500); // Throws a new exception with a generic error message and a status code of 500 
         }

@@ -12,7 +12,12 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
+    
 
+    /*This section sets the default authentication "guard" and password reset options.
+    These defaults can be adjusted as necessary but provide a good starting point for 
+    most applications.*/
+    
     'defaults' => [
         'guard' => env('AUTH_GUARD', 'api'),
     ],
@@ -34,6 +39,11 @@ return [
     |
     */
 
+
+    /*This section allows you to define every authentication guard for your application. 
+    A default configuration is provided using session storage and the Eloquent user provider
+    , with support for "token" driver.*/
+    
     'guards' => [
         'api' => ['driver' => 'passport'],
     ],
@@ -54,6 +64,10 @@ return [
     | Supported: "database", "eloquent"
     |
     */
+
+    /*This section defines how users are retrieved from your database or other
+    storage mechanisms for authentication. If you have multiple user tables or models, 
+    you can configure multiple sources and assign them to different authentication guards.*/
 
     'providers' => [
         //
@@ -78,6 +92,12 @@ return [
     |
     */
 
+
+    /*This section sets the options for resetting passwords, including the view for 
+    the password reset e-mail and the name of the table that maintains reset tokens. 
+    You can specify multiple password reset configurations if you have more than one 
+    user table or model, with a token expiration time to enhance security.*/
+    
     'passwords' => [
         //
     ],

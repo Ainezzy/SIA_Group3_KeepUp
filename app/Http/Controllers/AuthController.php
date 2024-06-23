@@ -9,6 +9,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    /*The register function validates the incoming request data, creates a new user with hashed password, saves it to the database, and then redirects to index.html.*/
     public function register(Request $request)
     {
         // Validate the incoming request data
@@ -30,7 +31,7 @@ class AuthController extends Controller
         // Redirect to dashboard.html
         return redirect('/index.html');
     }
-
+/*The login function validates the request data, attempts to authenticate the user with provided credentials, and redirects to index.html upon success, or throws a validation exception if authentication fails.*/
     public function login(Request $request)
     {
         // Validate the incoming request data

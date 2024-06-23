@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
+/*The register function is intended to register application services but is currently left empty.*/
     public function register()
     {
         //
@@ -24,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    /*The boot function sets up authentication services, including registering Lumen Passport routes for OAuth2 authentication, with a commented example for custom API token authentication.*/
     public function boot()
     {
         // Here you may define how you wish users to be authenticated for your Lumen

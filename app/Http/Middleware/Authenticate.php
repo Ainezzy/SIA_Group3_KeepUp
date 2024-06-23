@@ -20,6 +20,7 @@ class Authenticate
      * @param  \Illuminate\Contracts\Auth\Factory  $auth
      * @return void
      */
+    /*The __construct function initializes the middleware with an authentication guard factory instance.*/
     public function __construct(Auth $auth)
     {
         $this->auth = $auth;
@@ -33,6 +34,7 @@ class Authenticate
      * @param  string|null  $guard
      * @return mixed
      */
+    /*The handle function checks if the user is authenticated for a given guard, returns a 401 Unauthorized response if not authenticated, and otherwise proceeds with the request.*/
     public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
